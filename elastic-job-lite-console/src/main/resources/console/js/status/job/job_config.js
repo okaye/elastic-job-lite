@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 $(function() {
     tooltipLocale();
     validate();
@@ -32,7 +49,6 @@ function bindSubmitJobSettingsForm() {
         if (bootstrapValidator.isValid()) {
             var jobName = $("#job-name").val();
             var jobType = $("#job-type").val();
-            var jobClass = $("#job-class").val();
             var shardingTotalCount = $("#sharding-total-count").val();
             var jobParameter = $("#job-parameter").val();
             var cron = $("#cron").val();
@@ -48,13 +64,13 @@ function bindSubmitJobSettingsForm() {
             var password = $("#password").val();
             var logLevel = $("#logLevel").val();
             var shardingItemParameters = $("#sharding-item-parameters").val();
-            var jobShardingStrategyClass = $("#job-sharding-strategy-class").val();
+            var jobShardingStrategyType = $("#job-sharding-strategy-type").val();
             var scriptCommandLine = $("#script-command-line").val();
-            var executorServiceHandler = $("#executor-service-handler").val();
-            var jobExceptionHandler = $("#job-exception-handler").val();
+            var jobExecutorServiceHandler = $("#job-executor-service-handler").val();
+            var jobErrorHandler = $("#job-error-handler").val();
             var description = $("#description").val();
             var reconcileIntervalMinutes = $("#reconcile-interval-minutes").val();
-            var postJson = {jobName: jobName, jobType : jobType, jobClass : jobClass, shardingTotalCount: shardingTotalCount, jobParameter: jobParameter, cron: cron, streamingProcess: streamingProcess, maxTimeDiffSeconds: maxTimeDiffSeconds, monitorPort: monitorPort, monitorExecution: monitorExecution, failover: failover, misfire: misfire, shardingItemParameters: shardingItemParameters, jobShardingStrategyClass: jobShardingStrategyClass, jobProperties: {"executor_service_handler": executorServiceHandler, "job_exception_handler": jobExceptionHandler}, description: description, scriptCommandLine: scriptCommandLine, reconcileIntervalMinutes:reconcileIntervalMinutes};
+            var postJson = {jobName: jobName, jobType : jobType, shardingTotalCount: shardingTotalCount, jobParameter: jobParameter, cron: cron, streamingProcess: streamingProcess, maxTimeDiffSeconds: maxTimeDiffSeconds, monitorPort: monitorPort, monitorExecution: monitorExecution, failover: failover, misfire: misfire, shardingItemParameters: shardingItemParameters, jobShardingStrategyType: jobShardingStrategyType, jobExecutorServiceHandler: jobExecutorServiceHandler, jobErrorHandler: jobErrorHandler, description: description, scriptCommandLine: scriptCommandLine, reconcileIntervalMinutes:reconcileIntervalMinutes};
             var jobParams = getJobParams();
             if (jobParams.monitorExecution !== monitorExecution || jobParams.failover !== failover || jobParams.misfire !== misfire) {
                 showUpdateConfirmModal();

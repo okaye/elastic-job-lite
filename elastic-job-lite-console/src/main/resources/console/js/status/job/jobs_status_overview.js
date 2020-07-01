@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 $(function() {
     authorityControl();
     renderJobsOverview();
@@ -149,8 +166,8 @@ function bindEnableButton() {
     $(document).on("click", "button[operation='enable-job'][data-toggle!='modal']", function(event) {
         var jobName = $(event.currentTarget).attr("job-name");
         $.ajax({
-            url: "/api/jobs/" + jobName + "/disable",
-            type: "DELETE",
+            url: "/api/jobs/" + jobName + "/enable",
+            type: "POST",
             success: function() {
                 showSuccessDialog();
                 $("#jobs-status-overview-tbl").bootstrapTable("refresh");
@@ -206,7 +223,6 @@ function bindRemoveButton() {
 function renderJob(data) {
     $("#job-name").attr("value", data.jobName);
     $("#job-type").attr("value", data.jobType);
-    $("#job-class").attr("value", data.jobClass);
     $("#sharding-total-count").attr("value", data.shardingTotalCount);
     $("#cron").attr("value", data.cron);
     $("#sharding-item-parameters").text(data.shardingItemParameters);
@@ -217,9 +233,9 @@ function renderJob(data) {
     $("#streaming-process").attr("checked", data.streamingProcess);
     $("#max-time-diff-seconds").attr("value", data.maxTimeDiffSeconds);
     $("#monitor-port").attr("value", data.monitorPort);
-    $("#job-sharding-strategy-class").attr("value", data.jobShardingStrategyClass);
-    $("#executor-service-handler").attr("value", data.jobProperties["executor_service_handler"]);
-    $("#job-exception-handler").attr("value", data.jobProperties["job_exception_handler"]);
+    $("#job-sharding-strategy-type").attr("value", data.jobShardingStrategyType);
+    $("#job-executor-service-handler").attr("value", data.jobExecutorServiceHandlerType);
+    $("#job-error-handler").attr("value", data.jobErrorHandlerType);
     $("#reconcile-interval-minutes").attr("value", data.reconcileIntervalMinutes);
     $("#description").text(data.description);
     $("#script-command-line").attr("value", data.scriptCommandLine);

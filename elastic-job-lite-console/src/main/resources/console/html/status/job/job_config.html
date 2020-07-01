@@ -1,3 +1,20 @@
+<!--
+  ~ Licensed to the Apache Software Foundation (ASF) under one or more
+  ~ contributor license agreements.  See the NOTICE file distributed with
+  ~ this work for additional information regarding copyright ownership.
+  ~ The ASF licenses this file to You under the Apache License, Version 2.0
+  ~ (the "License"); you may not use this file except in compliance with
+  ~ the License.  You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
 <div class="box-body">
     <div role="tabpanel" class="tab-pane active" onsubmit="return false;">
         <form id="job-config-form" class="form-horizontal">
@@ -17,12 +34,6 @@
                                 <input type="text" id="job-type" name="jobType" class="form-control" disabled />
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="job-class" class="col-sm-2 control-label" data-lang="job-class"></label>
-                    <div class="col-sm-9">
-                        <input type="text" id="job-class" name="jobClass" class="form-control" disabled />
                     </div>
                 </div>
                 <div class="row">
@@ -122,21 +133,21 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="job-sharding-strategy-class" class="col-sm-2 control-label" data-lang="job-sharding-strategy-class"></label>
+                    <label for="job-sharding-strategy-type" class="col-sm-2 control-label" data-lang="job-sharding-strategy-type"></label>
                     <div class="col-sm-9">
-                        <input type="text" id="job-sharding-strategy-class" name="jobShardingStrategyClass" class="form-control" data-toggle="tooltip" data-placement="bottom" title="默认使用按照IP地址顺序分片策略，可参照文档定制化分片策略" />
+                        <input type="text" id="job-sharding-strategy-type" name="jobShardingStrategyType" class="form-control" data-toggle="tooltip" data-placement="bottom" title="默认使用按照IP地址顺序分片策略，可参照文档定制化分片策略" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="job-exception-handler" class="col-sm-2 control-label" data-lang="job-exception-handler"></label>
+                    <label for="job-error-handler" class="col-sm-2 control-label" data-lang="job-error-handler"></label>
                     <div class="col-sm-9">
-                        <input type="text" id="job-exception-handler" name="jobExceptionHandler" class="form-control" data-toggle="tooltip" data-placement="bottom" title="扩展`JobExceptionHandler`接口，定制异常处理流程，默认实现是记录日志但不抛出异常。" />
+                        <input type="text" id="job-error-handler" name="jobErrorHandler" class="form-control" data-toggle="tooltip" data-placement="bottom" title="扩展`JobErrorHandler`接口，定制异常处理流程，默认实现是记录日志但不抛出异常。" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="executor-service-handler" class="col-sm-2 control-label" data-lang="job-executor-service-handler"></label>
+                    <label for="job-executor-service-handler" class="col-sm-2 control-label" data-lang="job-executor-service-handler"></label>
                     <div class="col-sm-9">
-                        <input type="text" id="executor-service-handler" name="executorServiceHandler" class="form-control" data-toggle="tooltip" data-placement="bottom" title="扩展`ExecutorServiceHandler`接口，定制线程池。" />
+                        <input type="text" id="job-executor-service-handler" name="jobExecutorServiceHandler" class="form-control" data-toggle="tooltip" data-placement="bottom" title="扩展`ExecutorServiceHandler`接口，定制线程池。" />
                     </div>
                 </div>
                 <div class="form-group">
